@@ -26,7 +26,7 @@ function Video() {
         className="video__player"
         loop
         ref={videoRef}
-        src="https://foshanxiaoyu.github.io/yer.mp4"
+        src="https://foshanxiaoyu.github.io/fzx.mp4"
       ></video>
       Video
     </div>
