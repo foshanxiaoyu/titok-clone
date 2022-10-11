@@ -6,12 +6,12 @@ import MusicNoteIcon from "@mui/icons-material/MusicNote";
 
 import Ticker from "react-ticker";
 
-function VideoFooter() {
+function VideoFooter({ channel, description, song }) {
   return (
     <div className="videoFooter">
-      <div class="videoFooter__text">
-        <h4>@FZX</h4>
-        <p>中锋乖宝宝</p>
+      <div className="videoFooter__text">
+        <h4>@{channel}</h4>
+        <p>{description}</p>
         {/* Material Icons npm i @material-ui/icons */}
         <div className="videoFoot__ticker">
           <MusicNoteIcon className="videoFooter__icon" />
@@ -19,7 +19,7 @@ function VideoFooter() {
           <Ticker>
             {({ index }) => (
               <>
-                <p style={{ fontSize: 8 }}>This is the Headline of element #</p>
+                <p style={{ fontSize: 8 }}>{song}</p>
               </>
             )}
           </Ticker>

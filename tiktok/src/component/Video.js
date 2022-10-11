@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
 import "./video.css";
+import VideoFooter from "./VideoFooter";
+import VideoSidebar from "./VideoSidebar";
 
-function Video() {
+function Video({ url, channel, description, song, likes, shares, messages }) {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(false);
 
@@ -26,9 +28,21 @@ function Video() {
         className="video__player"
         loop
         ref={videoRef}
-        src="https://foshanxiaoyu.github.io/fzx.mp4"
+        // src="https://foshanxiaoyu.github.io/fzx.mp4" // 这里要学会部件参数的传递，有了数据提供就活了
+        src={url}
       ></video>
-      Video
+
+      <VideoFooter
+        channel={channel}
+        description={description}
+        song={song}
+        // channel={"FZX"}
+        // description={"中锋乖宝宝"}
+        // song={"This is my fav song"}
+      />
+      {/* <VideoSidebar likes={111} shares={222} messages={333} /> */}
+      <VideoSidebar likes={likes} shares={shares} messages={messages} />
+      {/* <VideoSidebar likes={111} shares={222} messages={333} /> */}
     </div>
   );
 }
