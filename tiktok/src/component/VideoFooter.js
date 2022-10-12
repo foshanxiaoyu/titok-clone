@@ -4,7 +4,7 @@ import "./videoFooter.css";
 // import MusicNoteIcon from "@material-ui/icons/MusicNote"  这个导入是不正常的，需要导入下面连接;
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 
-import Ticker from "react-ticker";
+// import Ticker from "react-ticker";
 
 function VideoFooter({ channel, description, song }) {
   return (
@@ -15,14 +15,14 @@ function VideoFooter({ channel, description, song }) {
         {/* Material Icons npm i @material-ui/icons */}
         <div className="videoFoot__ticker">
           <MusicNoteIcon className="videoFooter__icon" />
-
+          {/* 
           <Ticker>
             {({ index }) => (
               <>
                 <p style={{ fontSize: 8 }}>{song}</p>
               </>
             )}
-          </Ticker>
+          </Ticker> */}
 
           {/* <Ticker mode="smooth">
         {({index})=>{

@@ -1,5 +1,15 @@
 class tkVideos {
-  constructor(url, channel, song, likes, messages, description, shares) {
+  constructor(
+    url,
+    channel,
+    song,
+    likes,
+    messages,
+    description,
+    shares,
+    created,
+    updateTime,
+  ) {
     this.url = url;
     this.channel = channel;
     this.song = song;
@@ -7,6 +17,8 @@ class tkVideos {
     this.messages = messages;
     this.description = description;
     this.shares = shares;
+    this.created = new Date();
+    this.updateTime = new Date();
   }
 }
-module.exports = { tkVideos: tkVideos };
+module.exports = { tiktok: tkVideos };

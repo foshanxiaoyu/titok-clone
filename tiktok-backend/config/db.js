@@ -7,40 +7,38 @@ const client = new MongoClient(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
 // 连接数据库
 client.connect();
+// const DB_NAME = "MERN";
+// const coll = "tiktokVideos";
 console.log("DB connect success.");
-const DB_NAME = "MERN";
-const coll = "tiktokVideos";
 
-const findDoc = async function () {
+const findAllDoc = async (req, res) => {
   try {
     const result = await client
       .db("MERN")
       .collection("tiktokVideos")
-      .find({})
+      .find()
       .toArray();
-    console.log(result);
-    result.forEach((err, doc) => {
-      if (err) throw err;
-      if (doc) console.log(doc);
-    });
+    res.status(201).send(result);
   } catch (e) {
     console.error(e);
   }
 };
 
-const insertOneDoc = async function (videoDoc) {
+const insertOneDoc = async function (req, res, videoDoc) {
   try {
     const result = await client
       .db("MERN")
       .collection("tiktokVideos")
       .insertOne(videoDoc);
     console.log(result);
+    res.send(result);
   } catch (e) {
     console.error(e);
   }
 };
 
-module.exports.findDoc = findDoc;
+module.exports.findAllDoc = findAllDoc;
 module.exports.insertOneDoc = insertOneDoc;
